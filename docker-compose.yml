@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  mysql:
+    build: ./docker/develop/mysql
+    ports:
+      - 13307:3306
+    volumes:
+      - mysql-store:/var/lib/mysql
+  api:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    build:
+      context: .
+      dockerfile: ./docker/develop/api/Dockerfile
+    ports:
+      - 8080:80
+      - 9003:9003
+    volumes:
+      - ./html:/var/www/html
+      - ./docker/develop/api/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+      - vendor-store:/var/www/html/vendor
+    working_dir: /var/www/html
+
+volumes:
+  mysql-store:
+  vendor-store:
