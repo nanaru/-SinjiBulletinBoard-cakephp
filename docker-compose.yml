@@ -14,7 +14,6 @@ services:
       dockerfile: ./docker/develop/api/Dockerfile
     ports:
       - 8080:80
-      - 9003:9003
     volumes:
       - ./html:/var/www/html
       - ./docker/develop/api/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
