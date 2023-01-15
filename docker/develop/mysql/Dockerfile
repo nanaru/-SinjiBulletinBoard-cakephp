@@ -1,6 +1,6 @@
 FROM mysql:8.0.29
 
-ENV MYSQL_DATABASE=laravel_local \
+ENV MYSQL_DATABASE=cake_local \
   MYSQL_USER=phper \
   MYSQL_PASSWORD=secret \
   MYSQL_ROOT_PASSWORD=secret \
