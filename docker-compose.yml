@@ -19,7 +19,15 @@ services:
       - ./docker/develop/api/000-default.conf:/etc/apache2/sites-enabled/000-default.conf
       - vendor-store:/var/www/html/vendor
     working_dir: /var/www/html
-
+  swagger-ui:
+      image: swaggerapi/swagger-ui
+      container_name: "swagger-ui"
+      ports:
+          - "18080:8080"
+      volumes:
+          - ./html/openapi.yml:/openapi.yml
+      environment:
+          SWAGGER_JSON: /openapi.yml
 volumes:
   mysql-store:
   vendor-store:
