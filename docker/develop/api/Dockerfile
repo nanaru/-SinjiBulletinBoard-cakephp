@@ -1,8 +1,8 @@
 FROM php:8.1-apache
 
 # Composer のバージョン と ハッシュ値
-ARG composer_ver=1.10.13
-ARG composer_hash=5ca7445cfd48dd27c5a84aa005a47b4d9fd91132313830609875df3a6973708f
+ARG composer_ver=2.3.10
+ARG composer_hash=d808272f284fa8e0f8b470703e1438ac8f362030bbc9d12e29530277d767aff0
 
 # Composer の保存先
 ARG composer_path=/usr/local/bin/composer
