@@ -47,7 +47,7 @@
         "cs-fix": "phpcbf --colors -p src/ tests/",
         "stan": "phpstan analyse",
         "test": "phpunit --colors=always",
-        "create-openapi": "openapi -o openapi.yml src/Controller/"
+        "create-openapi": "openapi -o openapi.yml src/"
     },
     "prefer-stable": true,
     "config": {
