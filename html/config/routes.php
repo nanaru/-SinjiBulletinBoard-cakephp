@@ -21,6 +21,7 @@
  * @license       https://opensource.org/licenses/mit-license.php MIT License
  */
 
+use App\Middleware\CorsMiddleware;
 use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\RouteBuilder;
 
@@ -43,6 +44,13 @@ return static function (RouteBuilder $routes) {
      * `{action}` markers.
      */
     $routes->setRouteClass(DashedRoute::class);
+    // API
+    $routes->scope('/api', function (RouteBuilder $builder) {
+        $builder->registerMiddleware('cors', new CorsMiddleware());
+        $builder->applyMiddleware('cors');
+        $builder->setExtensions(['json']);
+        $builder->connect('/users/:id', ['prefix' => 'Api', 'controller' => 'User', 'action' => 'show'])->setPass(['id'])->setMethods(['GET']);
+    });
 
     $routes->scope('/', function (RouteBuilder $builder) {
         /*

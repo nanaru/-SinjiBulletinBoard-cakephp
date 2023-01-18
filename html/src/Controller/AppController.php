@@ -17,6 +17,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use OpenApi\Attributes as OA;
 
 /**
  * Application Controller
@@ -25,7 +26,10 @@ use Cake\Controller\Controller;
  * will inherit them.
  *
  * @link https://book.cakephp.org/4/en/controllers.html#the-app-controller
+ * ServerURLはコンテナ内部のURLを指定する必要がある
  */
+#[OA\Info(title: "CakePHP Test API", version: "1.0")]
+#[OA\Server(url: "http://localhost:8080")]
 class AppController extends Controller
 {
     /**
